@@ -3,6 +3,18 @@ import bb.cascades 1.0
 import bb.system 1.0
 
 Page {
+    Menu.definition: MenuDefinition {
+        settingsAction: SettingsActionItem {
+            onTriggered: {
+        
+            }
+        }
+        helpAction: HelpActionItem {
+            onTriggered: {
+            }
+        }
+    } // end of MenuDefinition
+    
     id: page
     actions: [
         ActionItem {
@@ -74,8 +86,8 @@ Page {
 
         }
         Container {
-            Label {
-                text: qsTr("2 Steps Authenticator")
+            Header {
+                title: qsTr("2 Steps Authenticator")
             }
             ProgressIndicator {
                 horizontalAlignment: HorizontalAlignment.Fill
@@ -128,7 +140,7 @@ Page {
                                     var s = ListItemData.next
                                 }
                             }
-                            onTouchEnter: {   
+                            onTouchExit: {   
                                 console.debug("Parent Container")                      
                                 Qt.app.insertToClipboard(ListItemData.code)
                             }
